@@ -7,7 +7,7 @@
 
 import UIKit
 
-@IBDesignable public class CardPaymentViewController: UIViewController {
+@IBDesignable open class CardPaymentViewController: UIViewController {
 
     //MARK: - Outlets
     @IBInspectable public var scrollView = UIScrollView()
@@ -25,7 +25,7 @@ import UIKit
     var _model: CardPaymentViewModel = CardPaymentViewModel.shared
     
     //MARK: - View Controller Life Cycle Methods
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupView()
@@ -33,7 +33,7 @@ import UIKit
     }
     
     
-    public override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         setUIConstrain()
         cardPaumentView.cardView.addShadow(color: ColorConstant.shadowColor, radius: 5)
@@ -44,6 +44,8 @@ import UIKit
 extension CardPaymentViewController{
     /// setup View Controller
     private func setupView(){
+        _model.viewController = self
+        activityIndicator.style = .large
         activityIndicator.hidesWhenStopped = true
         self.view.addSubview(scrollView)
         scrollView.addSubview(viewScrolling)
@@ -56,7 +58,10 @@ extension CardPaymentViewController{
             self.activityIndicator.startAnimating()
         }
         _model.hideLoading = {
-            self.activityIndicator.stopAnimating()
+            self.stopActivity()
+        }
+        _model.showError = { error in
+            self.alertGenrate(title: "error", message:error?.localizedDescription ?? "" )
         }
 //        cardPaumentView.setEmail("abc@gmail.com");
 //        cardPaumentView.iconColor = .blue
@@ -103,6 +108,22 @@ extension CardPaymentViewController{
         }
         else{
             
+        }
+    }
+    
+    func alertGenrate(title:String,message:String){
+        if `self` == self{
+            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .default) { k in
+                alert.removeFromParent()
+            }
+            alert.addAction(ok)
+            `self`.present(alert, animated: true, completion: nil)
+        }
+    }
+    func stopActivity(){
+        if `self` == self{
+            `self`.activityIndicator.stopAnimating()
         }
     }
 }

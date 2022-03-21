@@ -23,6 +23,8 @@ class StringConstant{
     //MARK: - Button Title Constant
     static var buttonTitleNext                               = "Next"
     static var buttonTitlePay                                = "Pay"
+    static var buttonTitleOK                                 = "Ok"
+    static var buttonTitleCancel                             = "Cancel"
     
     //MARK: - LabelTitle
     static var labelTitleCardNumber                          = "Card Number"

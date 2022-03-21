@@ -125,6 +125,11 @@ extension DynamicTextField {
         self.layer.borderColor = ColorConstant.borderColor.cgColor
     }
     
+    func setPlaceHolderColor(_ color:UIColor){
+        attributedPlaceholder = NSAttributedString(
+            string: placeholder ?? "",
+            attributes: [NSAttributedString.Key.foregroundColor: color])
+    }
 //    private func setupUnderline() {
 //        underlineView.translatesAutoresizingMaskIntoConstraints = false
 //        var constraints = [underlineView.heightAnchor.constraint(equalToConstant: 1)]

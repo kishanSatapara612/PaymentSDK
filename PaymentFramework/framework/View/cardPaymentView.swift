@@ -27,6 +27,8 @@ import UIKit
     @IBInspectable public var errorColor: UIColor = ColorConstant.errorColor { didSet { updateStyling() } }
     /// The color used for text in the fields.
     @IBInspectable public var textColor: UIColor = ColorConstant.textColor { didSet { updateStyling() } }
+    /// The color used for placeholder in the fields.
+    @IBInspectable public var placeHolderColor: UIColor = ColorConstant.textColor { didSet { updateStyling() } }
     
     /// Card number field placeholder text.  Use this property for localization.
     @IBInspectable public var cardNumberPlaceholderText: String? {
@@ -156,7 +158,6 @@ extension cardPaymentView {
     func setUIConstrain(){
         let width = UIScreen.main.bounds.width<UIScreen.main.bounds.height ? UIScreen.main.bounds.width : UIScreen.main.bounds.height
         // set card View UIConstrain
-        print(width)
         cardView.translatesAutoresizingMaskIntoConstraints = false
         cardView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         cardView.widthAnchor.constraint(equalToConstant: width - 40).isActive = true
@@ -275,7 +276,7 @@ extension cardPaymentView {
 //        numberField.borderColor = themeColor
         nextButton.target = self
         nextButton.action = #selector(selectExpiryAction(_:))
-        keyboardToolbar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), nextButton]
+        keyboardToolbar.items = [doneButton, UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), nextButton]
     }
     
 //    @IBAction func nameEditingBegan(_ sender: Any) {
@@ -297,7 +298,7 @@ extension cardPaymentView {
 //        expiryField.borderColor = themeColor
         nextButton.target = self
         nextButton.action = #selector(selectCvvAction(_:))
-        keyboardToolbar.items = [UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), nextButton]
+        keyboardToolbar.items = [doneButton, UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil), nextButton]
     }
     
     @IBAction func cvcEditingBegan(_ sender: Any) {
@@ -458,6 +459,7 @@ extension cardPaymentView {
         field.textColor = textColor
         field.iconTintColor = iconColor
         field.borderColor = borderColor
+        field.setPlaceHolderColor(placeHolderColor)
     }
 }
 

@@ -137,12 +137,12 @@
 		07BF567227E3301600B83456 /* framework */ = {
 			isa = PBXGroup;
 			children = (
-				07BF567327E3301600B83456 /* ViewModel */,
 				07BF567527E3301600B83456 /* Utilities */,
-				07BF568A27E3301600B83456 /* payment.xcassets */,
+				07BF569327E3301600B83456 /* Resource */,
 				07BF568B27E3301600B83456 /* Model */,
 				07BF568D27E3301600B83456 /* View */,
-				07BF569327E3301600B83456 /* Resource */,
+				07BF567327E3301600B83456 /* ViewModel */,
+				07BF568A27E3301600B83456 /* payment.xcassets */,
 			);
 			path = framework;
 			sourceTree = "<group>";
@@ -228,11 +228,11 @@
 		07BF568D27E3301600B83456 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				07BF568E27E3301600B83456 /* cardPaymentView.swift */,
-				07BF568F27E3301600B83456 /* DynamicTextField.swift */,
-				07BF569027E3301600B83456 /* CardView.swift */,
-				07BF569127E3301600B83456 /* ExpiryDatePickerField.swift */,
 				07BF569227E3301600B83456 /* CardPaymentViewController.swift */,
+				07BF568E27E3301600B83456 /* cardPaymentView.swift */,
+				07BF569027E3301600B83456 /* CardView.swift */,
+				07BF568F27E3301600B83456 /* DynamicTextField.swift */,
+				07BF569127E3301600B83456 /* ExpiryDatePickerField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

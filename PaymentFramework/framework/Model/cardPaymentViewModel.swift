@@ -89,7 +89,6 @@ extension CardPaymentModel{
     var formattedCardNumber: String? {
         get {
             guard let number = number else { return nil }
-            print(number)
             return brand.details.numberFormatter(number)
         }
         set {

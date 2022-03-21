@@ -15,7 +15,6 @@ class CVVNumberValidator{
     }
     /// check Cvv number is Valid Length or not
     static func validateLength(expirydate cn: String) -> Bool {
-        print(cn)
         return CVVNumberValidator.validLengths.contains(cn.count)
     }
 }
